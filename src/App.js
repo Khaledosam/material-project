@@ -8,17 +8,23 @@ import {
 } from "react-router-dom";
 import Create from "pages/create/Create";
 
+import NotFound from "pages/NotFound";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<Home />} />
       <Route path="Create" element={<Create />} />
-      {/* ... etc. */}
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <RouterProvider router={router} />;
+    </div>
+  );
 }
 
 export default App;
